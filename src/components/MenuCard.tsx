@@ -1,13 +1,13 @@
 import React from 'react';
-import { Pizza } from '../types';
+import { MenuItem } from '../types';
 import {useInView} from "../hooks/useInView";
 
-interface PizzaCardProps {
-    pizza: Pizza;
+interface MenuCardProps {
+    item: MenuItem;
     index: number;
 }
 
-const PizzaCard: React.FC<PizzaCardProps> = ({ pizza, index }) => {
+const MenuCard: React.FC<MenuCardProps> = ({ item, index }) => {
     const { ref, isVisible } = useInView({
         threshold: 0.2, // 20% карточки видно
     });
@@ -44,13 +44,13 @@ const PizzaCard: React.FC<PizzaCardProps> = ({ pizza, index }) => {
             }}
         >
             <div className="h-48 bg-gradient-to-br from-orange-600/20 to-red-900/20 flex items-center justify-center text-8xl">
-                {pizza.img}
+                {item.img}
             </div>
             <div className="p-6">
-                <h3 className="text-2xl font-bold mb-2">{pizza.name}</h3>
-                <p className="text-zinc-400 mb-4">{pizza.desc}</p>
+                <h3 className="text-2xl font-bold mb-2">{item.name}</h3>
+                <p className="text-zinc-400 mb-4">{item.desc}</p>
                 <div className="flex justify-between items-center">
-                    <span className="text-2xl font-bold text-orange-500">{pizza.price}</span>
+                    <span className="text-2xl font-bold text-orange-500">{item.price}</span>
                     <button className="bg-orange-500 hover:bg-orange-600 px-6 py-2 rounded-full transition-colors duration-300">
                         Заказать
                     </button>
@@ -60,4 +60,4 @@ const PizzaCard: React.FC<PizzaCardProps> = ({ pizza, index }) => {
     );
 };
 
-export default PizzaCard;
+export default MenuCard;

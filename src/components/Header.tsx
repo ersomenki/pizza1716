@@ -12,10 +12,17 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ scrolled, menuOpen, setMenuOpen, scrollToSection }) => {
     return (
         <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-zinc-900/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
-            <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-                <div className="text-3xl font-bold bg-gradient-to-r from-orange-500 to-red-600 bg-clip-text text-transparent">
-                    1716
-                </div>
+            <div className="container mx-auto px-2 py-2 flex justify-between items-center">
+                <button
+                    onClick={() => scrollToSection('главная')}
+                    className="flex items-center transition-transform duration-300 hover:scale-105"
+                >
+                    <img
+                        src="/logo1716.png"
+                        alt="1716 Пиццерия"
+                        className="h-16 w-auto"
+                    />
+                </button>
 
                 <nav className="hidden md:flex gap-8">
                     {navItems.map((item) => (
